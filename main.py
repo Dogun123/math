@@ -1,9 +1,10 @@
 from flask import Flask,Blueprint
 from flask.templating import render_template
+from view import calc
 
 app = Flask(__name__,static_url_path='/static')
 
-app.register_blueprint('view.calc',url_prefix='calc')
+app.register_blueprint(calc.calc,url_prefix='/calc')
 
 @app.route('/')
 def cover():
